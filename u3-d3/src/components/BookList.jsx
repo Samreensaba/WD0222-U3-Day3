@@ -1,13 +1,40 @@
 import { Component } from "react";
+import { Container, Row, Col, Form  } from "react-bootstrap";
 import SingleBook from "./SingleBook";
 
 
 class BookList extends Component{
+    state = {
+        searchQuery:""
+    }
     render(){
         return(
-            this.props.list.map(book=>(<SingleBook category="this.props.list"/>))
+            <Container>
+                
+                    
+                    <Form.Group>
+                        <Form.Label>Search</Form.Label>
+                    <Form.Control type="text" placeholder="Search here"
+                    value={this.searchQuery}
+                    onChange={event=> this.setState({searchQuery: event.target.value})} />
+            
+                  </Form.Group>
+                    
+                
+                <Row>
+                    {
+                    this.props.books.map(mappedBook=>(
+                        <Col key={mappedBook.asin}>
+                        <SingleBook book={mappedBook}/>
+                        </Col>
+
+                    )
+                    )}
+                </Row>
+            </Container>
             
         )
     }
+    
 }
 export default BookList
