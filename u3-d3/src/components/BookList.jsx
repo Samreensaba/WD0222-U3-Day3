@@ -9,6 +9,7 @@ class BookList extends Component{
     }
     render(){
         return(
+            
             <Container>
                 
                     
@@ -23,7 +24,7 @@ class BookList extends Component{
                 
                 <Row>
                     {
-                    this.props.books.map(mappedBook=>(
+                    this.props.books.slice(0,12).filter(mappedBook => mappedBook.title.toLowerCase().includes(this.state.searchQuery)).map(mappedBook=>(
                         <Col key={mappedBook.asin}>
                         <SingleBook book={mappedBook}/>
                         </Col>
@@ -35,6 +36,5 @@ class BookList extends Component{
             
         )
     }
-    
 }
 export default BookList

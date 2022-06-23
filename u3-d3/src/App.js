@@ -7,6 +7,7 @@ import SingleBook from "./components/SingleBook"
 import history from "./data/books/history.json"
 import fantasy from "./data/books/fantasy.json"
 import MyNav from "./components/MyNav";
+import Reviews from "./components/Reviews"
 
 function App() {
   return (
@@ -15,6 +16,7 @@ function App() {
     <WarningSign text="This a an Alert"/>
     <MyBadge textColor="black" text="Badge"/>
     <BookList books={history}/>
+    <Reviews/>
      
     </div>
   );
